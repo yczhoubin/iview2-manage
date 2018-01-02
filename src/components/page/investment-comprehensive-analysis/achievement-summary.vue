@@ -25,7 +25,7 @@ export default {
     return {
       myChart: null,
       option: options.option,
-      serieItem: {}
+      serieItem: options.serieItem
     };
   },
   methods: {
@@ -41,15 +41,9 @@ export default {
       this.option.series = series;
     },
     refresh: function(params) {
-      try {
-        debugger
-        this.serieItem = params.serieItem ? params.serieItem : {};
-        this.myChart.resize();
-        this.initData();
-        this.drowChart();
-      } catch (error) {
-        this.$Message.info("招商情况综合分析-业绩完成总计图刷新失败：" + JSON.stringify(error));
-      }
+      this.myChart.resize();
+      this.initData();
+      this.drowChart();
     }
   }
 };

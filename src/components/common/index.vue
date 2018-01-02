@@ -120,6 +120,10 @@
                     <Icon type="pie-graph" :size="iconSize"></Icon>
                     <span class="layout-text">地图(Echarts)</span>
                 </Menu-item>
+                <Menu-item name="echartsComplex">
+                    <Icon type="pie-graph" :size="iconSize"></Icon>
+                    <span class="layout-text">综合图表</span>
+                </Menu-item>
             </Menu>
         </i-col>
         <i-col :span="spanRight">

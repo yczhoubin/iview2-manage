@@ -38,15 +38,18 @@ export default new Router({
                 {
                     path: '/rtf',
                     component: resolve => require(['../components/page/rtf.vue'], resolve)
-                },{
+                }, {
                     path: '/upload',
                     component: resolve => require(['../components/page/upload.vue'], resolve)
-                },{
+                }, {
                     path: '/echarts',
                     component: resolve => require(['../components/page/echarts.vue'], resolve)
                 }, {
                     path: '/echartsMap',
                     component: resolve => require(['../components/page/echarts-map'], resolve)
+                }, {
+                    path: '/echartsComplex',
+                    component: resolve => require(['../components/page/investment-comprehensive-analysis'], resolve)
                 }
             ]
         },
