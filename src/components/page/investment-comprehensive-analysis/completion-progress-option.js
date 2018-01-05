@@ -1,5 +1,20 @@
 let option = {};
 
+var gradientColor = {
+    type: 'linear',
+    x: 0,  // 右
+    y: 0,  // 下
+    x2: 0,  // 左
+    y2: 1,  // 上
+    colorStops: [{
+        offset: 0, color: 'rgb(91,220,255)' // 0% 处的颜色
+    },{
+        offset: 1, color: 'rgb(11,90,156)'  // 100% 处的颜色
+    }],
+    globalCoord: false // 缺省为 false
+};
+
+
 option.serieItems = [
     { name: "测试项目一", value: 80},
     { name: "测试项目二", value: 63},
@@ -111,7 +126,8 @@ option.serieBefore = function(value) {
 }
 
 option.option = {
-    backgroundColor: 'rgba(255, 255, 255, 0.0)',
+    backgroundColor: 'rgba(0, 0, 0, 1)',
+    // backgroundColor: 'rgba(255, 255, 255, 0.0)',
     grid: {
         left: '3%',
         right: '4%',

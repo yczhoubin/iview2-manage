@@ -6,6 +6,7 @@
   <div style="width:100%; height:100%;">
     <!-- 图标综合 -->
     <AchievementSummary ref="achievementSummary"></AchievementSummary>
+    <!-- <CompletionProgress></CompletionProgress> -->
   </div>
 </template>
 <script>

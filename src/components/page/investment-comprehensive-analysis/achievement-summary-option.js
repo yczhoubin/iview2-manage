@@ -1,16 +1,31 @@
 let option = {};
 
-option.serieItem = {name: '项目统计汇总', value: 73.6};
+var gradientColor = {
+    type: 'linear',
+    x: 0,  // 右
+    y: 1,  // 下
+    x2: 1,  // 左
+    y2: 0,  // 上
+    colorStops: [{
+        offset: 0, color: 'rgb(95, 214, 255)' // 0% 处的颜色
+    },{
+        offset: 1, color: 'rgb(197, 33, 255)'  // 100% 处的颜色
+    }],
+    globalCoord: false // 缺省为 false
+};
+
+option.serieItem = { name: '项目统计汇总', value: 84.6 };
+
 
 option.serieGauge = function () {
     /*仪表盘图，做中间刻度线*/
     return {
         type: 'gauge',
         name: '业务指标',
-        radius: '60%',
-        startAngle: '0',
-        endAngle: '-359.99',
-        splitNumber: '100',
+        radius: '56%',
+        startAngle: '240',
+        endAngle: '-119.9',
+        splitNumber: '50',
         pointer: {
             show: false
         },
@@ -20,11 +35,11 @@ option.serieGauge = function () {
         detail: {
             show: false
         },
-        data: [{ value: 95, name: '完成率' }],
+        data: [{ value: 100, name: '完成率' }],
         axisLine: {
             lineStyle: {
-                color: [],
-                width: 20,
+                color: [[1, 'rgba(0,0,0,0.0)']],
+                width: 30,
                 opacity: 1
             }
         },
@@ -33,9 +48,10 @@ option.serieGauge = function () {
         },
         splitLine: {
             show: true,
-            length: 20,
+            length: 10,
             lineStyle: {
-                color: 'rgba(255,255,255,1)',
+                // color: 'rgba(255,255,255,1)',
+                color: gradientColor,
                 width: 2,
                 type: 'solid',
             },
@@ -53,6 +69,7 @@ option.serieOutPie = function (item) {
         type: 'pie',
         clockWise: true,
         startAngle: 240,
+        zlevel: 2,
         radius: ['60%', '65%'],
         hoverAnimation: false,
         center: ['50%', '50%'],
@@ -91,8 +108,8 @@ option.serieOutPie = function (item) {
             },
             itemStyle: {
                 normal: {
-                    color: '#c521ff',
-                    // shadowColor: '#f74369',
+                    // color: '#c521ff',
+                    color: gradientColor,
                     shadowBlur: 10
                 }
             }
@@ -101,7 +118,7 @@ option.serieOutPie = function (item) {
             name: 'invisible',
             itemStyle: {
                 normal: {
-                    color: 'rgba(11,44,86,1.0)', // 完成的圆环的颜色
+                    color: 'rgba(11,44,86,0.0)', // 完成的圆环的颜色
                     label: {
                         show: false
                     },
@@ -109,48 +126,33 @@ option.serieOutPie = function (item) {
                         show: false
                     }
                 },
-                // emphasis: {
-                //     color: 'rgba(44,59,70,1)' // 未完成的圆环的颜色
-                // }
             }
         }]
     };
 }
 
-option.seriePie2 = function () {
+option.serieBackgroundPie = function () {
     /*外层环形图，展示详细占比*/
     return {
         name: 'pie',
         type: 'pie',
         clockWise: true,
+        zlevel: 1,
         startAngle: -270,
-        radius: ['60%', '65%'],
+        radius: ['61.5%', '63.5%'],
         hoverAnimation: false,
         center: ['50%', '50%'],
         data: [{
-            value: 5,
-            name: '1',
+            value: 100,
             itemStyle: {
                 normal: {
-                    color: '#e7b507'
-                }
-            }
-        },
-        {
-            value: 25,
-            name: '1',
-            itemStyle: {
-                normal: {
-                    color: '#009eff'
-                }
-            }
-        },
-        {
-            value: 15,
-            name: '1',
-            itemStyle: {
-                normal: {
-                    color: '#f74369'
+                    color: 'rgba(11,44,86,1.0)',
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
                 }
             }
         }],
@@ -164,7 +166,8 @@ option.seriePie2 = function () {
 }
 
 option.option = {
-    backgroundColor: 'rgba(255,255,255,0.0)',
+    backgroundColor: 'rgba(0,0,0,1)',
+    // backgroundColor: 'rgba(255,255,255,0.0)',
     series: []
 };
 

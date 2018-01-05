@@ -37,7 +37,9 @@ export default {
     },
     setSeries: function() {
       let series = [];
+      series.push(options.serieGauge());
       series.push(options.serieOutPie(this.serieItem));
+      series.push(options.serieBackgroundPie());
       this.option.series = series;
     },
     refresh: function(params) {
